@@ -12,6 +12,6 @@ class Base_Model_Tests(unittest.TestCase):
         """check attributes"""
         base0 = BaseModel()
 
-        self.assertEqual(type(base0.id), str, 2)
+        self.assertEqual(type(base0.id), str, [])
         self.assertEqual(type(base0.updated_at), datetime)
         self.assertEqual(type(base0.created_at), datetime)
