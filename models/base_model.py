@@ -2,6 +2,7 @@
 """Base Model"""
 from datetime import datetime
 from uuid import uuid4
+from models.base_model import BaseModel
 
 
 class BaseModel():
