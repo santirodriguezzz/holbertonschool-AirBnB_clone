@@ -10,7 +10,7 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """new intance"""
         if kwargs:
-            for i, x in kwargs:
+            for i, x in kwargs.items():
                 if i in ("created_at", "updated_at"):
                     x = datetime.datetime.strptime(x, "%Y-%m-%dT%H:%M:%S.%f")
                 if i != "__class__":
