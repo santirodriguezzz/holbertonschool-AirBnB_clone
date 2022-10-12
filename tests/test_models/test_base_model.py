@@ -2,7 +2,7 @@
 """python interpreter"""
 import unittest
 from models.base_model import BaseModel 
-from datetime import datetime
+import datetime
 
 
 class Base_Model_Tests(unittest.TestCase):
