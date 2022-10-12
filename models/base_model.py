@@ -7,11 +7,18 @@ from uuid import uuid4
 class BaseModel():
     """new base model"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """new intance"""
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if kwargs:
+            for i, x in kwargs:
+                if i in ("created_at", "updated_at"):
+                    x = datetime.datetime.strptime(x, "%Y-%m-%dT%H:%M:%S.%f"):
+                if i =! "__class__":
+                    setattr(self, i, x)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """string rep"""
