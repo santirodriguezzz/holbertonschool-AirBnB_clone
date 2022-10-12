@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Base Model"""
-import datetime
+import datetime.datetime
 from uuid import uuid4
 
 
@@ -17,8 +17,8 @@ class BaseModel():
                     setattr(self, i, x)
         else:
             self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
 
     def __str__(self):
         """string rep"""
@@ -26,7 +26,7 @@ class BaseModel():
 
     def save(self):
         """Updates updated_at with current datatime"""
-        self.updated_at = datetime.utcnow()
+        self.updated_at = datetime.datetime.utcnow()
 
     def to_dict(self):
         """Dictionary"""
