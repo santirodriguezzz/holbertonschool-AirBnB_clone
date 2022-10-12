@@ -12,7 +12,7 @@ class BaseModel():
         if kwargs:
             for i, x in kwargs:
                 if i in ("created_at", "updated_at"):
-                    x = datetime.datetime.strptime(x, "%Y-%m-%dT%H:%M:%S.%f"):
+                    x = datetime.datetime.strptime(x, "%Y-%m-%dT%H:%M:%S.%f")
                 if i =! "__class__":
                     setattr(self, i, x)
         else:
