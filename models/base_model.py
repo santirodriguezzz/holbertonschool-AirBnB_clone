@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Base Model"""
-import datetime.datetime
+import datetime
 from uuid import uuid4
 
 
