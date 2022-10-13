@@ -14,6 +14,5 @@ class File_Storage_Tests(unittest.TestCase):
         file1_list = storage.all()
         self.assertEqual(type(file1_list), dict)
 
-
 if __name__ == '__main__':
     unittest.main()
