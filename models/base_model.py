@@ -10,11 +10,11 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """new intance"""
         if kwargs:
-            for i, x in kwargs.items():
-                if i in ("created_at", "updated_at"):
-                    x = datetime.datetime.strptime(x, "%Y-%m-%dT%H:%M:%S.%f")
-                if i != "__class__":
-                    setattr(self, i, x)
+            for element, value in kwargs.items():
+                if element in ("created_at", "updated_at"):
+                    value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                if element != "__class__":
+                    setattr(self, element, value)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.datetime.now()
@@ -35,3 +35,4 @@ class BaseModel():
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
         return dictionary
+
