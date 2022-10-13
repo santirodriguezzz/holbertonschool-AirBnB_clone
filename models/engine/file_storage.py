@@ -30,7 +30,7 @@ class FileStorage():
 
         for key, value in self.__objects.items():
             dict_objec[key] = value.to_dict()
-        with open(__objects, mode='w') as file:
+        with open(self.__file_path, mode='w') as file:
             file.write(json.dumps(dict_objec))
 
     def reload(self):
