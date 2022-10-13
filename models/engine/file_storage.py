@@ -5,7 +5,7 @@ from os import path
 
 
 class FileStorage():
-"""class fileStorage"""
+    """class fileStorage"""
 
     __file_path = "file.json"
     __objects = {}
