@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Base Model"""
 import datetime
-from modulefinder import STORE_NAME
 import models
 from uuid import uuid4
 
