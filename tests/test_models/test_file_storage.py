@@ -2,6 +2,7 @@
 """testing"""
 import unittest
 from models.engine.file_storage import FileStorage
+from models import storage
 
 
 class File_Storage_Tests(unittest.TestCase):
@@ -10,8 +11,9 @@ class File_Storage_Tests(unittest.TestCase):
     def test0(self):
         """tests file storage methods"""
         file1 = FileStorage()
+        file1_list = storage.all()
+        self.assertEqual(type(file1_list), dict)
 
-        self.assertEqual(file1.all(), {})
 
 if __name__ == '__main__':
     unittest.main()
