@@ -39,5 +39,5 @@ class FileStorage():
             with open(self.__file_path, mode='r') as fileJr:
                 loaded_dictionary = json.loads(fileJr.read())
             for values in loaded_dictionary.values():
-                execsClass = values['__class__']
+                execsClass = values["__class__"]
                 self.new(eval(execsClass)(**values))
