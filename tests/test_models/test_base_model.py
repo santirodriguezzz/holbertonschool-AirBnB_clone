@@ -19,3 +19,5 @@ class Base_Model_Tests(unittest.TestCase):
     def file_storage(Self):
         """tests file storage methods"""
         file1 = FileStorage()
+
+        self.assertEqual(type(file1.__objects), {})
