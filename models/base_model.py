@@ -21,7 +21,7 @@ class BaseModel():
             self.id = str(uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
-            models.storage.new()
+            models.storage.new(self)
 
     def __str__(self):
         """string rep"""
