@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """Base Model"""
 import datetime
+from modulefinder import STORE_NAME
+import models
 from uuid import uuid4
+
 
 
 class BaseModel():
@@ -19,6 +22,7 @@ class BaseModel():
             self.id = str(uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
+            models.storage.new()
 
     def __str__(self):
         """string rep"""
@@ -27,6 +31,7 @@ class BaseModel():
     def save(self):
         """Updates updated_at with current datatime"""
         self.updated_at = datetime.datetime.utcnow()
+        models.storage.save()
 
     def to_dict(self):
         """Dictionary"""
@@ -35,4 +40,3 @@ class BaseModel():
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
         return dictionary
-
