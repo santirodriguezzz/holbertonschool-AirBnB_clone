@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Base Model"""
-import datetime
+from datetime import datetime
 import models
 from uuid import uuid4
 
@@ -14,13 +14,13 @@ class BaseModel():
         if kwargs:
             for element, value in kwargs.items():
                 if element in ("created_at", "updated_at"):
-                    value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if element != "__class__":
                     setattr(self, element, value)
         else:
             self.id = str(uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def __str__(self):
@@ -29,7 +29,7 @@ class BaseModel():
 
     def save(self):
         """Updates updated_at with current datatime"""
-        self.updated_at = datetime.datetime.utcnow()
+        self.updated_at = datetime.utcnow()
         models.storage.save()
 
     def to_dict(self):

@@ -1,14 +1,23 @@
 #!/usr/bin/python3
 """Module Console"""
 import cmd
-from models import BaseModel, FileStorage
+import models
 
 
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the cmd interpreter"""
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
 
-cmd.PROMPT
+    def do_quit(self, arg):
+        """Quit command to exit the program"""
+        exit()   
 
+    def EOF(self,arg):
+        """EOF command to exit the program"""
+        exit()
+
+    def emptyline(self):
+        """when input is an empty line"""
+        pass
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
