@@ -79,7 +79,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """Prints all str repr of all instances not based on class name"""
         argv = arg.split()
-        if len(argv) > 0:
+        if len(argv) >= 1:
             try:
                 eval(arg)()
             except:
