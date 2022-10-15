@@ -76,9 +76,21 @@ class HBNBCommand(cmd.Cmd):
             except:
                 print("** class doesn't exist **")
 
+    def do_all(self, arg):
+        """Prints all str repr of all instances not based on class name"""
+        argv = arg.split()
+        if len(argv) > 1:
+            try:
+                eval(arg)()
+            except:
+                print('** class doesn\'t exist **')
+        else:
+            print(storage.all())
+
     # all errors (e.g.: instance not found) could be all added to 1 method which does all
     # + return argv as a dictonary, then eval will be easier.
     # 'tis done like this because functionality before optimization.
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
