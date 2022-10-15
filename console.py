@@ -7,6 +7,33 @@ from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 
 
+def check_class(self, arg):
+    """checks if class exisits"""
+    argv = arg.split()
+    if len(arg) == 0:
+        print("** class name missing **")
+        return False
+    try:
+        eval(argv[0])
+    except:
+        print("** class doesn't exist **")
+        return False
+
+
+def check_id(self, arg):
+    """checks if id exisits"""
+    argv = arg.split()
+    if len(argv) == 1:
+        print("** instance id missing **")
+        return False
+    try:
+        key = f"{argv[0]}.{argv[1]}"
+        storage.all()[key]
+    except:
+        print("** no instance found **")
+        return False
+
+
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the cmd interpreter"""
     prompt = '(hbnb) '
@@ -25,8 +52,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel"""
-        if len(arg) == 0:
-            print('** class name missing **')
+        if check_class(self, arg) == False:
+            return
         else:
             try:
                 newInstance = eval(arg)()
@@ -38,32 +65,22 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Prints the string representation of an instance"""
-        argv = arg.split()
-        if len(arg) == 0:
-            print("** class name missing **")
+        if check_class(self, arg) == False:
             return
-        if len(argv) == 1:
-            print("** instance id missing **")
+        argv = arg.split()
+        if check_id(self, arg) == False:
+            return
         else:
             key = f"{argv[0]}.{argv[1]}"
-            try:
-                eval(argv[0])
-            except:
-                print("** class doesn't exist **")
-                return
-            try:
-                print(storage.all()[key])
-            except:
-                print("** no instance found **")
+            print(storage.all()[key])
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id"""
-        argv = arg.split()
-        if len(arg) == 0:
-            print("** class name missing **")
+        if check_class(self, arg) == False:
             return
-        if len(argv) == 1:
-            print("** instance id missing **")
+        argv = arg.split()
+        if check_id(self, arg) == False:
+            return
         else:
             key = f"{argv[0]}.{argv[1]}"
             try:
@@ -91,11 +108,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
         argv = arg.split()
-        if len(arg) == 0:
-            print("** class name missing **")
-            return
-        if len(argv) == 1:
-            print("** instance id missing **")
+        if check_class(self, arg) == False:
             return
         if len(argv) == 2:
             print("** attribute name missing **")
@@ -103,16 +116,10 @@ class HBNBCommand(cmd.Cmd):
         if len(argv) == 3:
             print("** value missing **") # checked all args are present
         else:
-            try:
-                eval(argv[0])()
-            except:
-                print('** class doesn\'t exist **')
             key = f"{argv[0]}.{argv[1]}"
-            try:
-                storage.all()[key]
-            except:
-                print("** no instance found **") # now class and id ok
-            for keys, value in storage.all().items():
+            if check_id(self, arg) == False:
+                return
+        for keys, value in storage.all().items():
                 if argv[0] == value.__class__.__name__ and \
                         argv[1].strip('""') == value.id:
                     setattr(value, argv[2], argv[3])
