@@ -82,6 +82,7 @@ class HBNBCommand(cmd.Cmd):
         if len(argv) >= 1:
             try:
                 eval(arg)()
+                print(storage.all())
             except:
                 print('** class doesn\'t exist **')
         else:
