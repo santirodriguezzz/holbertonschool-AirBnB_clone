@@ -104,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **") # checked all args are present
         else:
             try:
-                eval(arg)()
+                eval(argv[0])()
             except:
                 print('** class doesn\'t exist **')
             key = f"{argv[0]}.{argv[1]}"
