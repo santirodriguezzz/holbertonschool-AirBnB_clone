@@ -82,11 +82,15 @@ class HBNBCommand(cmd.Cmd):
         if len(argv) >= 1:
             try:
                 eval(arg)()
-                print(storage.all())
+                # print(storage.all())
             except:
                 print('** class doesn\'t exist **')
         else:
             print(storage.all())
+
+    def do_update(self, arg):
+        """Updates an instance based on the class name and id"""
+
 
     # all errors (e.g.: instance not found) could be all added to 1 method which does all
     # + return argv as a dictonary, then eval will be easier.
