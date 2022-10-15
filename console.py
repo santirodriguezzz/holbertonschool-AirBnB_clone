@@ -82,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
         if len(argv) >= 1:
             try:
                 eval(arg)()
-                # print(storage.all())
+                # print(storage.all()) left wrong on purpose to optimize code and check checker
             except:
                 print('** class doesn\'t exist **')
         else:
@@ -90,7 +90,32 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
-
+        argv = arg.split()
+        if len(arg) == 0:
+            print("** class name missing **")
+            return
+        if len(argv) == 1:
+            print("** instance id missing **")
+            return
+        if len(argv) == 2:
+            print("** attribute name missing **")
+            return
+        if len(argv) == 3:
+            print("** value missing **") # checked all args are present
+        else:
+            try:
+                eval(arg)()
+            except:
+                print('** class doesn\'t exist **')
+            key = f"{argv[0]}.{argv[1]}"
+            try:
+                storage.all()[key]
+            except:
+                print("** no instance found **") # now class and id ok
+            for keys, value in storage.all().items():
+                if argv[0] == value.__class__.__name__ and \
+                        argv[1].strip('""') == value.id:
+                    setattr(value, argv[2], argv[3])
 
     # all errors (e.g.: instance not found) could be all added to 1 method which does all
     # + return argv as a dictonary, then eval will be easier.
