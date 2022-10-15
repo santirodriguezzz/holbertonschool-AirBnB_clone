@@ -56,6 +56,29 @@ class HBNBCommand(cmd.Cmd):
             except:
                 print("** no instance found **")
 
+    def do_destroy(self, arg):
+        """Deletes an instance based on the class name and id"""
+        argv = arg.split()
+        if len(arg) == 0:
+            print("** class name missing **")
+            return
+        if len(argv) == 1:
+            print("** instance id missing **")
+        else:
+            key = f"{argv[0]}.{argv[1]}"
+            try:
+                del storage.all()[key]
+            except:
+                print("** no instance found **")
+            storage.save()
+            try:
+                eval(argv[0])
+            except:
+                print("** class doesn't exist **")
+
+    # all errors (e.g.: instance not found) could be all added to 1 method which does all
+    # + return argv as a dictonary, then eval will be easier.
+    # 'tis done like this because functionality before optimization.
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
