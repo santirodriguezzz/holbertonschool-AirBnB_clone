@@ -19,7 +19,6 @@ def check_class(self, arg):
         print("** class doesn't exist **")
         return False
 
-
 def check_id(self, arg):
     """checks if id exisits"""
     argv = arg.split()
@@ -32,7 +31,6 @@ def check_id(self, arg):
     except:
         print("** no instance found **")
         return False
-
 
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the cmd interpreter"""
@@ -61,7 +59,6 @@ class HBNBCommand(cmd.Cmd):
                 print(newInstance.id)
             except:
                 print('** class doesn\'t exist **')
-
 
     def do_show(self, arg):
         """Prints the string representation of an instance"""
@@ -120,9 +117,9 @@ class HBNBCommand(cmd.Cmd):
             if check_id(self, arg) == False:
                 return
         for keys, value in storage.all().items():
-                if argv[0] == value.__class__.__name__ and \
-                        argv[1].strip('""') == value.id:
-                    setattr(value, argv[2], argv[3])
+            if argv[0] == value.__class__.__name__ and \
+                    argv[1].strip('""') == value.id:
+                setattr(value, argv[2], argv[3])
 
     # all errors (e.g.: instance not found) could be all added to 1 method which does all
     # + return argv as a dictonary, then eval will be easier.
