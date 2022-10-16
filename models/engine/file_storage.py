@@ -3,11 +3,11 @@
 import json
 from os import path
 from models.base_model import BaseModel
-from models import City
-from models import Place
-from models import State
-from models import Review
-from models import Amenity
+from models.city import City
+from models.place import Place
+from models.state import State
+from models.review import Review
+from models.amenity import Amenity
 from models.user import User
 
 
