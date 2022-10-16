@@ -3,6 +3,11 @@
 import cmd
 import models
 from models import storage
+from models import City
+from models import Place
+from models import State
+from models import Review
+from models import Amenity
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models.user import User
