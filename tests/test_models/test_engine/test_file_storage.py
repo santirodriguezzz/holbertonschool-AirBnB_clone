@@ -31,4 +31,5 @@ class File_Storage_Tests(unittest.TestCase):
 
     def test_reload(self):
         """tests reload"""
-        self.assertRaises(FileNotFoundError, models.storage.reload())
+        storagE = FileStorage()
+        storagE.reload()
