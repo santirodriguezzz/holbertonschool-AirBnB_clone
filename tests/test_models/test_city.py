@@ -9,7 +9,7 @@ class City_Tests(unittest.TestCase):
 
     def test_attributes(self):
         newCity = City()
-        self.assertEquals(newCity.__class.__name__, "City")
+        self.assertEquals(newCity.__class__.__name__, "City")
 
     def test_1(self):
         newCity = City()
