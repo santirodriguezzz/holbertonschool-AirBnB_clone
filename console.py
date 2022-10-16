@@ -96,7 +96,7 @@ class HBNBCommand(cmd.Cmd):
         if len(argv) >= 1:
             try:
                 eval(arg)()
-                # print(storage.all()) left wrong on purpose to optimize code and check checker
+                print(storage.all())
             except:
                 print('** class doesn\'t exist **')
         else:
@@ -107,18 +107,18 @@ class HBNBCommand(cmd.Cmd):
         argv = arg.split()
         if check_class(self, arg) == False:
             return
+        if check_id(self, arg) == False:
+            return
         if len(argv) == 2:
             print("** attribute name missing **")
             return
         if len(argv) == 3:
             print("** value missing **") # checked all args are present
+            return
         else:
             key = f"{argv[0]}.{argv[1]}"
-            if check_id(self, arg) == False:
-                return
         for keys, value in storage.all().items():
-            if argv[0] == value.__class__.__name__ and \
-                    argv[1].strip('""') == value.id:
+            if argv[0] == value.__class__.__name__ and argv[1].strip('""') == value.id:
                 setattr(value, argv[2], argv[3])
 
     # all errors (e.g.: instance not found) could be all added to 1 method which does all
