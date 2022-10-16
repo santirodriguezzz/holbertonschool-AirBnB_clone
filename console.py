@@ -5,6 +5,7 @@ import models
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models.user import User
 
 
 def check_class(self, arg):
@@ -120,10 +121,6 @@ class HBNBCommand(cmd.Cmd):
         for keys, value in storage.all().items():
             if argv[0] == value.__class__.__name__ and argv[1].strip('""') == value.id:
                 setattr(value, argv[2], argv[3])
-
-    # all errors (e.g.: instance not found) could be all added to 1 method which does all
-    # + return argv as a dictonary, then eval will be easier.
-    # 'tis done like this because functionality before optimization.
 
 
 if __name__ == '__main__':
