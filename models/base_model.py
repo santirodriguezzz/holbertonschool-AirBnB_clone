@@ -2,7 +2,6 @@
 """Base Model"""
 from datetime import datetime
 import models
-from models.user import User
 from uuid import uuid4
 
 
