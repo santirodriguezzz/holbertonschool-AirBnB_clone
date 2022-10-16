@@ -13,5 +13,5 @@ class State_Tests(unittest.TestCase):
         self.assertEquals(newState.__class.__name__, "State")
 
     def test_1(self):
-        newState = User()
+        newState = State()
         self.assertEqual(type(newState.name), str)
