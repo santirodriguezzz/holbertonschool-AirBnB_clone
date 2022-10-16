@@ -9,7 +9,7 @@ class Place_Tests(unittest.TestCase):
 
     def test_attributes(self):
         newPlace = Place()
-        self.assertEquals(newPlace.__class.__name__, "Place")
+        self.assertEquals(newPlace.__class__.__name__, "Place")
 
     def test_1(self):
         newPlace = Place()
