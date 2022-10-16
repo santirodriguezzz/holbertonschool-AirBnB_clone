@@ -23,8 +23,8 @@ class FileStorage():
 
     def new(self, obj):
         """
-        This function creates a new object of class BaseModel and adds it to the dictionary __objects.
-
+        This function creates a new object of class BaseModel
+        and adds it to the dictionary __objects.
         :param obj: the object to be stored
         """
 
