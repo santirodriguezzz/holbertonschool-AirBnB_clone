@@ -9,7 +9,7 @@ class Amenity_Tests(unittest.TestCase):
 
     def test_attributes(self):
         newAmenity = Amenity()
-        self.assertEquals(newAmenity.__class.__name__, "Amenity")
+        self.assertEquals(newAmenity.__class__.__name__, "Amenity")
 
     def test_1(self):
         newAmenity = Amenity()

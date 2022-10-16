@@ -10,7 +10,7 @@ class State_Tests(unittest.TestCase):
 
     def test_attributes(self):
         newState = State()
-        self.assertEquals(newState.__class.__name__, "State")
+        self.assertEquals(newState.__class__.__name__, "State")
 
     def test_1(self):
         newState = State()

@@ -9,7 +9,7 @@ class Review_Tests(unittest.TestCase):
 
     def test_attributes(self):
         newReview = Review()
-        self.assertEquals(newReview.__class.__name__, "Review")
+        self.assertEquals(newReview.__class__.__name__, "Review")
 
     def test_1(self):
         newReview = Review()
