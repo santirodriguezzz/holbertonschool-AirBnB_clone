@@ -11,26 +11,24 @@ class Base_Model_Tests(unittest.TestCase):
     """test attrubute """
 
     def setUp(self):
-        base0 = BaseModel()
+        """set up new basemodel"""
+        self.base = BaseModel()
 
-    def test_attributes(self):
-        """check attributes"""
-        base1 = BaseModel()
-
-        self.assertEqual(type(base1.id), str, [])
-        self.assertEqual(type(base1.created_at), datetime.datetime)
-        self.assertEqual(type(base1.updated_at), datetime.datetime)
+    def test1(self):
+        """test 1"""
+        self.assertEqual(type(self.base.id), str, [])
+        self.assertEqual(type(self.base.created_at), datetime.datetime)
+        self.assertEqual(type(self.base.updated_at), datetime.datetime)
 
     def test_initt(self):
         """tests init"""
-        base2 = BaseModel()
-
-        self.assertTrue(isinstance(self.base2, BaseModel))
+        self.assertTrue(isinstance(self.base, BaseModel))
 
     def test_save(self):
         """tests save"""
-        self.base0.save()
-        self.assertNotEqual(self.base0.created_at, self.base0.updated_at)
+        self.base.save()
+        self.assertNotEqual(self.base.created_at, self.base.updated_at)
+
 
 
 if __name__ == '__main__':
