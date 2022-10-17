@@ -29,11 +29,6 @@ class File_Storage_Tests(unittest.TestCase):
         storage.new(BaseModel())
         self.assertNotEqual(newobj, storage.all())
 
-    def test_save(self):
-        """tests save"""
-        self.basesita.save()
-        self.assertNotEqual(self.basesita.created_at, self.basesita.updated_at)
-
     def test_reload(self):
         """tests reload"""
         self.assertRaises(FileNotFoundError, models.storage.reload())
