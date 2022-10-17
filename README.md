@@ -1,6 +1,6 @@
 # Python - AirBnB Clone
 
-[](https://imgur.com/EKbgvKF)
+[](https://i.imgur.com/EKbgvKF.png)
 
 ## Description
 
