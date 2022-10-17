@@ -1,10 +1,18 @@
 # Python - AirBnB Clone
 
-[](https://imgur.com/EKbgvKF.png)
+[](https://imgur.com/EKbgvKF)
 
 ## Description
 
 This is the first step towards creating our own clone of the AirBnB webpage. For this first fiew packages we are developing the console part of the whole project. The console is fully functional in various areas, such as creating new models, showing information, and is also able to update information. All of this is information is saved by serializing the information from a dictionary format into json format. Last, this serialized information can be deserialized so it can be accessed as well as updated.
+
+### The how to:
+
+1) First you should type ``./console.py`` into the command interpret.
+2) Now that you are in the fully functional console, you have several features to choose from to use:
+
+[](https://i.imgur.com/0r6pa16.jpg)
+
 
 ---
 
