@@ -12,15 +12,20 @@ class Base_Model_Tests(unittest.TestCase):
 
     def setUp(self):
         base0 = BaseModel()
+
     def test_attributes(self):
         """check attributes"""
-        self.assertEqual(type(base0.id), str, [])
-        self.assertEqual(type(base0.created_at), datetime.datetime)
-        self.assertEqual(type(base0.updated_at), datetime.datetime)
+        base1 = BaseModel()
+
+        self.assertEqual(type(base1.id), str, [])
+        self.assertEqual(type(base1.created_at), datetime.datetime)
+        self.assertEqual(type(base1.updated_at), datetime.datetime)
 
     def test_initt(self):
         """tests init"""
-        self.assertTrue(isinstance(self.base0, BaseModel))
+        base2 = BaseModel()
+
+        self.assertTrue(isinstance(self.base2, BaseModel))
 
     def test_save(self):
         """tests save"""
