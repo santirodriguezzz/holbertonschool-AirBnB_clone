@@ -1,18 +1,41 @@
 # Python - AirBnB Clone
 
-[](https://i.imgur.com/EKbgvKF.png)
+![](https://i.imgur.com/EKbgvKF.png)
 
 ## Description
 
 This is the first step towards creating our own clone of the AirBnB webpage. For this first fiew packages we are developing the console part of the whole project. The console is fully functional in various areas, such as creating new models, showing information, and is also able to update information. All of this is information is saved by serializing the information from a dictionary format into json format. Last, this serialized information can be deserialized so it can be accessed as well as updated.
 
-### The how to:
+## The how to:
 
 1) First you should type ``./console.py`` into the command interpret.
 2) Now that you are in the fully functional console, you have several features to choose from to use:
 
-[](https://i.imgur.com/0r6pa16.jpg)
+> **Create** - with this feature you can create a new ``BaseModel`` and once you push enter it will show you the id of the new created ``BaseModel``.
+>
+> **Show** - this feature shows you the information of a specific ``BaseModel`` + id given.
+>
+> **Destroy** - as the name states, it destroys a ``BaseModel`` by also specifying the id.
+>
+> **All** - shows all the saved information, or you can also specify "all BaseModel" and shows all BaseModels
+>
+> **Update** - by specifying ``update`` + ``class name`` ``id`` ``attribute name`` ``attribute value``, you can update the chosen attribute.
 
+### Here we are using ``create``:
+
+![](https://i.imgur.com/0r6pa16.jpg)
+
+### Here we are ``create`` a new BaseModel, then we ``show`` it and last we ``destroy`` it:
+
+~![](https://i.imgur.com/J7LMw6N.jpg)
+
+### Here we are using the feature ``all``:
+
+![](https://i.imgur.com/QFdx6Ji.jpg)
+
+### Last but not least, here we use the ``update`` feature:
+
+![](https://i.imgur.com/aolvu6D.jpg)
 
 ---
 
