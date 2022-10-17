@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """python interpreter"""
 import unittest
+import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
