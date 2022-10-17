@@ -4,7 +4,7 @@ import unittest
 import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-import datetime
+from datetime import datetime
 
 
 class Base_Model_Tests(unittest.TestCase):
@@ -27,8 +27,8 @@ class Base_Model_Tests(unittest.TestCase):
         self.assertEqual(my_model.__class__.__name__, "BaseModel")
         self.assertEqual(my_model.name, "My First Model")
         self.assertEqual(my_model.my_number, 89)
-        self.assertTrue(isinstance(my_model.created_at, datetime))
-        self.assertTrue(isinstance(my_model.updated_at, datetime))
+        self.assertTrue(isinstance(my_model.created_at, datetime.datetime))
+        self.assertTrue(isinstance(my_model.updated_at, datetime.datetime))
         self.assertEqual(my_dict["id"], my_model.id)
         self.assertEqual(strmodel, my_model.__str__())
         self.assertTrue(os.path.exists("file.json"))
