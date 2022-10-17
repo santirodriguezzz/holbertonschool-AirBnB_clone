@@ -18,6 +18,17 @@ class Base_Model_Tests(unittest.TestCase):
         self.assertEqual(type(base0.created_at), datetime.datetime)
         self.assertEqual(type(base0.updated_at), datetime.datetime)
 
+    def test_initt(self):
+        """tests init"""
+        base0 = BaseModel()
+        self.assertTrue(isinstance(self.base0, BaseModel))
+
+    def test_save(self):
+        """tests save"""
+        base0 = BaseModel()
+        self.base0.save()
+        self.assertNotEqual(self.base0.created_at, self.base0.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()
